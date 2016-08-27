@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="swagger-toolbox">
 
 <head>
     <meta charset="utf-8">
@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="css/codemirror.css">
     <script src="vendor/codemirror-compressed.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-
+    <style>
+        body {
+            background: url("img/bg.png")
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="empty">
+    <div class="container" ng-controller="mainController as vm">
+        <div class="text-center">
             <i class="icon icon-people"></i>
             <h3 class="empty-title">Welcome to Swagger toolbox</h3>
             <p class="empty-meta">Utility that save time by converting json to swagger compatible yaml models</p>
@@ -27,16 +31,29 @@
                         <a href="#">JSON</a>
                     </li>
                 </ul>
-                <textarea class="column col-12" id="myTextarea" placeholder="paste json object here"></textarea>
+                <textarea class="column col-12" id="myTextarea" placeholder="paste json object here"> {
+    "id": 1,
+    "name": "A green door",
+    "price": 12.50,
+    "tags": ["home", "green"]
+}</textarea>
             </div>
             <div class="col-2">
                 <div class="text-center">
                     <br>
-                    <button class="btn btn-primary">Build Swagger model</button>
+                    <br>
+                    <br>
+                    <button class="btn btn-primary" ng-click="vm.processJSON()">Build Swagger model</button>
+                    <br>
+                    <br>
                     <br>
                     <button class="btn btn-primary">Format JSON</button>
                     <br>
-
+                    <br>
+                    <br>
+                    <div class="toast" ng-show="vm.statusMessage" ng-class="{'toast-danger':vm.status==='error','toast-success':vm.status==='success'}" ng-bind="vm.statusMessage">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
                 </div>
 
             </div>
@@ -50,6 +67,7 @@
             </div>
         </div>
     </div>
+    <script src="js/yamler.js"></script>
     <script src="js/app.js"></script>
 </body>
 
