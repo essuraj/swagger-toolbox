@@ -1,15 +1,18 @@
 var jsonEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea"), {
-    lineNumbers: true,
-    mode: "javascript"
+       lineNumbers: true,
+    mode: "application/json",
+    gutters: ["CodeMirror-lint-markers"],
+    lint: true
 });
 
 var yamlEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea2"), {
-    mode: "yaml"
+    mode: "yaml",
+    readonly: true
 });
 class MainController {
 
     processJSON() {
-        var jsonString = jsonEditor.getValue();
+        var jsonString = jsonEditor.getValue().trim();
         console.info(jsonString);
         if (this.tryParseJSON(jsonString) === true) {
             console.info(true);
@@ -20,6 +23,8 @@ class MainController {
             var x = stringify(yamlReady);
             console.log(x);
             yamlEditor.setValue(x);
+            this.statusMessage = "Convertion complete ✔";
+            this.status = "success";
 
         } else {
             this.statusMessage = "Error with JSON";

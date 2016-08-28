@@ -6,11 +6,16 @@
     <title>Welcome to Firebase Hosting</title>
     <link rel="stylesheet" href="css/spectre.min.css">
     <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="css/lint.css">
     <script src="vendor/codemirror-compressed.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <style>
         body {
             background: url("img/bg.png")
+        }
+        
+        .text-red {
+            color: #b90000;
         }
     </style>
 </head>
@@ -25,29 +30,30 @@
         </div>
 
         <div class="columns ">
-            <div class="col-5">
+            <div class="column col-5">
                 <ul class="tab tab-block">
                     <li class="tab-item active">
                         <a href="#">JSON</a>
                     </li>
                 </ul>
-                <textarea class="column col-12" id="myTextarea" placeholder="paste json object here"> {
+                <textarea class="col-12" id="myTextarea" placeholder="paste json object here">{
     "id": 1,
     "name": "A green door",
-    "price": 12.50,
+    "price": 12,
+    "testBool":false,
     "tags": ["home", "green"]
 }</textarea>
             </div>
-            <div class="col-2">
-                <div class="text-center">
+            <div class="column col-2">
+                <div class="text-center p-10">
                     <br>
                     <br>
                     <br>
-                    <button class="btn btn-primary" ng-click="vm.processJSON()">Build Swagger model</button>
+                    <button class="btn btn-primary" ng-click="vm.processJSON()">Build Swagger model →</button>
                     <br>
                     <br>
                     <br>
-                    <button class="btn btn-primary">Format JSON</button>
+
                     <br>
                     <br>
                     <br>
@@ -57,13 +63,19 @@
                 </div>
 
             </div>
-            <div class="col-5">
+            <div class="column col-5">
                 <ul class="tab tab-block">
                     <li class="tab-item active">
-                        <a href="#">YAML</a>
+                        <a href="#">SWAGGER YAML</a>
                     </li>
                 </ul>
                 <textarea class="column col-12" id="myTextarea2" placeholder="paste json object here"></textarea>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="toast col-12 text-center">
+                <p>Made with <b class="text-red">♥</b> for the fact that a little effort can take us a long way </p>
+                <p>E.S.Suraj</p>
             </div>
         </div>
     </div>
