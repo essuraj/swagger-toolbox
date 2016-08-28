@@ -1,13 +1,14 @@
 var jsonEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea"), {
-       lineNumbers: true,
+    lineNumbers: true,
     mode: "application/json",
     gutters: ["CodeMirror-lint-markers"],
-    lint: true
+    lint: true,
+    lintOnChange: true
 });
 
 var yamlEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea2"), {
     mode: "yaml",
-    readonly: true
+    readOnly: true
 });
 class MainController {
 

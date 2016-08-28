@@ -33,7 +33,7 @@
             <div class="column col-5">
                 <ul class="tab tab-block">
                     <li class="tab-item active">
-                        <a href="#">JSON</a>
+                        <a href="#">JSON MODEL INPUT</a>
                     </li>
                 </ul>
                 <textarea class="col-12" id="myTextarea" placeholder="paste json object here">{
@@ -58,7 +58,7 @@
                     <br>
                     <br>
                     <div class="toast" ng-show="vm.statusMessage" ng-class="{'toast-danger':vm.status==='error','toast-success':vm.status==='success'}" ng-bind="vm.statusMessage">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
                     </div>
                 </div>
 
@@ -66,16 +66,18 @@
             <div class="column col-5">
                 <ul class="tab tab-block">
                     <li class="tab-item active">
-                        <a href="#">SWAGGER YAML</a>
+                        <a href="#">SWAGGER YAML MODEL OUTPUT</a>
                     </li>
                 </ul>
-                <textarea class="column col-12" id="myTextarea2" placeholder="paste json object here"></textarea>
+                <textarea class="column col-12" id="myTextarea2" readonly></textarea>
             </div>
         </div>
+        <br>
+        <div class="divider"></div>
         <div class="columns">
-            <div class="toast col-12 text-center">
+            <div class="col-12 text-center">
                 <p>Made with <b class="text-red">♥</b> for the fact that a little effort can take us a long way </p>
-                <p>E.S.Suraj</p>
+                <a href="https://github.com/essuraj/" target="">E.S.Suraj</p>
             </div>
         </div>
     </div>
