@@ -6,7 +6,6 @@ var jsonEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea"), 
 var yamlEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea2"), {
     mode: "yaml"
 });
-
 class MainController {
 
     processJSON() {
@@ -17,7 +16,8 @@ class MainController {
             this.statusMessage = "Valid json ✔";
             this.status = "success";
             var json = JSON.parse(jsonString);
-            var x = stringify(json);
+            var yamlReady = this.buildSwaggerJSON(json);
+            var x = stringify(yamlReady);
             console.log(x);
             yamlEditor.setValue(x);
 
@@ -38,7 +38,57 @@ class MainController {
         }
 
         return false;
-    };
+    }
+    buildSwaggerJSON(data) {
+        var keys = Object.keys(data)
+        var op = { required: keys, properties: {} };
+        keys.forEach(x => {
+            var typeData = typeOf(data[x]);
+            if (["array", "object", "null"].indexOf(typeData) === -1)
+                op.properties[x] = { "type": typeData };
+            else {
+                switch (typeData) {
+                    case "array":
+                        typeData = typeOf(data[x][1]);
+                        switch (typeData) {
+                            case "array":
+                                typeData = typeOf(data[x][1]);
+                                if (["array"].indexOf(typeData) === -1) {
+                                    op.properties[x] = { "type": "array", "items": { type: typeData } };
+                                } else {
+                                    this.statusMessage = "Error with JSON - Complex object";
+                                    this.status = "error";
+                                    throw new Error("Complex object", data[x]);
+                                }
+                                break;
+                            case "object":
+                                op.properties[x] = this.buildSwaggerJSON((data[x]));
+                                op.properties[x].type = "object";
+                                break;
+
+                        }
+                        if (["array"].indexOf(typeData) === -1) {
+                            op.properties[x] = { "type": "array", "items": { type: typeData } };
+                        } else {
+                            this.statusMessage = "Error with JSON - Complex object";
+                            this.status = "error";
+                            throw new Error("Complex object", data[x]);
+                        }
+                        break;
+                    case "object":
+                        op.properties[x] = this.buildSwaggerJSON((data[x]));
+                        op.properties[x].type = "object";
+                        break;
+                    case "null":
+                        break;
+                }
+
+
+
+            }
+        });
+        return op;
+    }
 }
 
 angular
