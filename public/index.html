@@ -46,19 +46,12 @@
             </div>
             <div class="column col-2">
                 <div class="text-center p-10">
-                    <br>
-                    <br>
-                    <br>
                     <button class="btn btn-primary" ng-click="vm.processJSON()">Build Swagger model →</button>
-                    <br>
-                    <br>
-                    <br>
-
-                    <br>
-                    <br>
-                    <br>
-                    <div class="toast" ng-show="vm.statusMessage" ng-class="{'toast-danger':vm.status==='error','toast-success':vm.status==='success'}" ng-bind="vm.statusMessage">
-
+                    <br/>
+                    <br/>
+                    <div class="toast pt-10" ng-show="vm.statusMessage" ng-class="{'toast-danger':vm.status==='error','toast-success':vm.status==='success'}">
+                        <span> ♣ </span>
+                        <span ng-bind="vm.statusMessage"></span>
                     </div>
                 </div>
 
@@ -76,8 +69,14 @@
         <div class="divider"></div>
         <div class="columns">
             <div class="col-12 text-center">
-                <p>Made with <b class="text-red">♥</b> for the fact that a little effort can take us a long way </p>
-                <a href="https://github.com/essuraj/" target="">E.S.Suraj</p>
+                <p>Made with <b class="text-red">❤</b> for the fact that a little effort can take us a long way </p>
+
+                <figure class="avatar avatar-sm">
+                    <img src="https://avatars2.githubusercontent.com/u/1737617?v=3&u=c08b712f0a76ae6dfc382cd9c99bac80228c0268&s=40" />
+                </figure>
+                <a href="https://github.com/essuraj/" target="">E.S.Suraj</a>
+
+
             </div>
         </div>
     </div>
