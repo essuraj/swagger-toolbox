@@ -65,6 +65,9 @@ class MainController {
                                 op.properties[x] = this.buildSwaggerJSON((data[x]));
                                 op.properties[x].type = "object";
                                 break;
+                            default:
+                                console.warn("skipping " + typeData);
+                                break;
 
                         }
                         if (["array"].indexOf(typeData) === -1) {
@@ -79,7 +82,8 @@ class MainController {
                         op.properties[x] = this.buildSwaggerJSON((data[x]));
                         op.properties[x].type = "object";
                         break;
-                    case "null":
+                    default:
+                        console.warn("skipping " + typeData);
                         break;
                 }
 
