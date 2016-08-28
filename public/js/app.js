@@ -11,7 +11,9 @@ var yamlEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea2"),
     readOnly: true
 });
 class MainController {
-
+    constructor() {
+        this.statusMessage = undefined;
+    }
     processJSON() {
         var jsonString = jsonEditor.getValue().trim();
         console.info(jsonString);
