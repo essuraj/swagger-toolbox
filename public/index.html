@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="swagger-toolbox">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="css/codemirror.css">
     <link rel="stylesheet" href="css/lint.css">
     <script src="vendor/codemirror-compressed.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="vendor/yamler.min.js"></script>
     <style>
         body {
@@ -55,7 +54,7 @@
 </head>
 
 <body>
-    <div class="container" ng-controller="mainController as vm">
+    <div class="container">
         <div class="text-center">
             <i class="icon icon-people"></i>
             <h3 class="empty-title">Welcome to Swagger toolbox</h3>
@@ -73,12 +72,12 @@
             </div>
             <div class="column col-2">
                 <div class="text-center p-10">
-                    <button class="btn btn-primary" ng-click="vm.processJSON()">Build Swagger model →</button>
+                    <button class="btn btn-primary" onclick="processJSON()">Build Swagger model →</button>
                     <br/>
                     <br/>
-                    <div class="toast pt-10" ng-show="vm.statusMessage" ng-class="{'toast-danger':vm.status==='error','toast-success':vm.status==='success'}">
+                    <div id="status">
                         <span> ♣ </span>
-                        <span ng-bind="vm.statusMessage"></span>
+                        <span id="statusMessage"></span>
                     </div>
                 </div>
             </div>
