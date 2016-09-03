@@ -11,7 +11,7 @@ var yamlEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea2"),
     readOnly: true
 });
 var statusChange = function(state) { document.getElementById("status").className = state };
-var statusMessage = (message) => document.getElementById("statusMessage").innerHTML = message;
+var statusMessage = function(message) { document.getElementById("statusMessage").innerHTML = message };
 
 function processJSON() {
     var jsonString = jsonEditor.getValue().trim();
@@ -50,7 +50,7 @@ function tryParseJSON(jsonString) {
 function buildSwaggerJSON(data) {
     var keys = Object.keys(data)
     var op = { required: keys, properties: {} };
-    keys.forEach(x => {
+    keys.forEach(function(x) {
         var typeData = typeOf(data[x]);
         if (["array", "object", "null"].indexOf(typeData) === -1)
             op.properties[x] = { "type": typeData };
