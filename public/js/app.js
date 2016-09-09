@@ -16,13 +16,12 @@ var statusMessage = function(message) { document.getElementById("statusMessage")
 function processJSON() {
     var jsonString = jsonEditor.getValue().trim();
     if (this.tryParseJSON(jsonString) === true) {
-        console.info(true);
         statusMessage("Valid json ✔");
         statusChange("toast pt-10 toast-success");
         var json = JSON.parse(jsonString);
         var yamlReady = this.buildSwaggerJSON(json);
+        console.log(yamlReady);
         var x = stringify(yamlReady);
-        console.log(x);
         yamlEditor.setValue(x);
         statusMessage("Convertion complete ✔");
         statusChange("toast pt-10 toast-success");
@@ -57,41 +56,24 @@ function buildSwaggerJSON(data) {
         else {
             switch (typeData) {
                 case "array":
-                    typeData = typeOf(data[x][1]);
-                    switch (typeData) {
-                        case "array":
-                            typeData = typeOf(data[x][1]);
-                            if (["array"].indexOf(typeData) === -1) {
-                                op.properties[x] = { "type": "array", "items": { type: typeData } };
-                            } else {
-                                statusMessage("Error with JSON - Complex object");
-                                statusChange("toast pt-10 toast-danger");
-                                throw new Error("Complex object", data[x]);
-                            }
-                            break;
-                        case "object":
-                            op.properties[x] = this.buildSwaggerJSON((data[x]));
-                            op.properties[x].type = "object";
-                            break;
-                        default:
-                            console.warn("skipping " + typeData);
-                            break;
+                    typeData = typeOf(data[x][0]);
+                    if (typeData === "array") {
+                        // op.properties[x] = { "type": "array", "items": { type: typeData } };
+                        throw new Error("Complex object (array of array etc...)", data[x][0]);
+                    }
+                    if (typeData === "object") {
+                        op.properties[x] = { "type": "array", "items": { type: typeData, properties: buildSwaggerJSON(data[x][0]) } };
+                        break;
+                    }
+                    op.properties[x] = { "type": "array", "items": { type: typeData } };
 
-                    }
-                    if (["array"].indexOf(typeData) === -1) {
-                        op.properties[x] = { "type": "array", "items": { type: typeData } };
-                    } else {
-                        statusMessage("Error with JSON - Complex object");
-                        statusChange("toast pt-10 toast-danger");
-                        throw new Error("Complex object", data[x]);
-                    }
                     break;
                 case "object":
-                    op.properties[x] = this.buildSwaggerJSON((data[x]));
+                    op.properties[x] = buildSwaggerJSON((data[x]));
                     op.properties[x].type = "object";
                     break;
                 default:
-                    console.warn("skipping " + typeData);
+                    console.warn("skipping ", typeData);
                     break;
             }
         }
