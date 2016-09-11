@@ -1,0 +1,35 @@
+ html,
+ body {
+     height: 100%;
+ }
+ 
+ body {
+     background: url("../img/bg.png")
+ }
+ 
+ .text-red {
+     color: #b90000;
+ }
+ 
+ header h1 {
+     font-size: x-large !important;
+     margin-top: 0;
+ }
+ 
+ header h2 {
+     font-size: medium !important;
+     margin-top: 0;
+ }
+ 
+ .h100 {
+     height: 100%;
+ }
+ 
+ .fh {
+     height: calc(100% - 80px);
+ }
+ 
+ .op .CodeMirror {
+     background: none;
+     height: 48.5%;
+ }

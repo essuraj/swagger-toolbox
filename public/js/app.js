@@ -10,6 +10,10 @@ var yamlEditor = CodeMirror.fromTextArea(document.getElementById("myTextarea2"),
     mode: "yaml",
     readOnly: true
 });
+var jsonEditor2 = CodeMirror.fromTextArea(document.getElementById("myTextarea3"), {
+    mode: "application/json",
+    readOnly: true
+});
 var statusChange = function(state) { document.getElementById("status").className = state };
 var statusMessage = function(message) { document.getElementById("statusMessage").innerHTML = message };
 
@@ -21,6 +25,7 @@ function processJSON() {
         var json = JSON.parse(jsonString);
         var yamlReady = this.buildSwaggerJSON(json);
         console.log(yamlReady);
+        jsonEditor2.setValue(JSON.stringify(yamlReady, null, 4));
         var x = stringify(yamlReady);
         yamlEditor.setValue(x);
         statusMessage("Convertion complete ✔");

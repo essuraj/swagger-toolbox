@@ -29,15 +29,6 @@
     <link rel="stylesheet" href="css/spectre.min.css">
     <link rel="stylesheet" href="css/codemirror.css">
     <link rel="stylesheet" href="css/lint.css">
-    <style>
-        body {
-            background: url("img/bg.png")
-        }
-        
-        .text-red {
-            color: #b90000;
-        }
-    </style>
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -54,16 +45,13 @@
         ga('create', 'UA-83203394-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-    <div class="container">
-        <header class="text-center">
-            <i class="icon icon-people"></i>
-            <h1 class="empty-title">Welcome to Swagger toolbox</h3>
-            <h5 class="empty-meta">Utility that save time by converting json to swagger compatible yaml models</p>
-        </header>
-        <div class="columns ">
+
+    <div class="container h100">
+        <div class="columns fh">
             <div class="column col-5">
                 <ul class="tab tab-block">
                     <li class="tab-item active">
@@ -74,8 +62,13 @@
                 </textarea>
             </div>
             <div class="column col-2">
+                <header class="text-center">
+                    <img src="img/android-icon-48x48.png" alt="">
+                    <h1>Swagger toolbox</h1>
+                    <h2>Utility that save time by converting json to swagger compatible yaml models</h2>
+                </header>
                 <div class="text-center p-10">
-                    <button class="btn btn-primary" onclick="processJSON()">Build Swagger model →</button>
+                    <button class="btn " onclick="processJSON()">Build →</button>
                     <br/>
                     <br/>
                     <div id="status">
@@ -84,26 +77,26 @@
                     </div>
                 </div>
             </div>
-            <div class="column col-5">
+            <div class="column col-5 op">
                 <ul class="tab tab-block">
                     <li class="tab-item active">
                         <a href="#">SWAGGER YAML MODEL OUTPUT</a>
                     </li>
                 </ul>
                 <textarea class="column col-12" id="myTextarea2" readonly></textarea>
+                <textarea class="column col-12" id="myTextarea3" readonly></textarea>
             </div>
         </div>
-        <br>
         <div class="divider"></div>
         <footer class="columns">
             <div class="col-12 text-center">
-                <p>Made with <b class="text-red">❤</b> by 
-                <a href="https://github.com/essuraj/" target="_blank">Suraj</a></p>
+                <p>Made with <b class="text-red">❤</b> by
+                    <a href="https://github.com/essuraj/" target="_blank">Suraj</a></p>
                 <p>Suggest or report anything <a href="https://github.com/essuraj/swagger-toolbox/issues" target="_blank">here</a></p>
             </div>
         </footer>
     </div>
-     <script src="vendor/codemirror-compressed.js"></script>
+    <script src="vendor/codemirror-compressed.js"></script>
     <script src="vendor/yamler.min.js"></script>
     <script src="js/app.js"></script>
 </body>
