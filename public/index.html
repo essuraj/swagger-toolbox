@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Swagger toolbox</title>
-    <meta name="Description" content="Utility that save time by converting json to swagger compatible yaml models">
-    <meta name="Keywords" content="swagger, toolbox, json, model, yaml, parse, convert, easy, converting json, model output, swagger model, testbool false, swagger yaml, swagger compatible, swagger toolbox, build swagger, yaml model output">
+    <meta name="Description" content="Utility that saves time by converting json to swagger compatible yaml models">
+    <meta name="Keywords" content="swagger, toolbox, json, model, yaml, parse, schema, swagger schema, convert, easy, converting json, model output, swagger model, testbool false, swagger yaml, swagger compatible, swagger toolbox, build swagger, yaml model output">
     <meta name="Robots" content="index, follow">
     <link rel="canonical" href="https://swagger-toolbox.firebaseapp.com/" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,9 +32,9 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
-        (function(i, s, o, g, r, a, m) {
+        (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
+            i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date();
             a = s.createElement(o),
@@ -53,6 +53,32 @@
 <body>
 
     <div class="container h100">
+        <header class="tile tile-centered ml-10 mr-10">
+            <div class="tile-icon">
+                <div class="example-tile-icon">
+                    <img src="img/android-icon-48x48.png" alt="logo">
+                </div>
+            </div>
+            <div class="tile-content">
+                <div class="tile-title text-ellipsis">
+                    <h1>Swagger toolbox</h1>
+                </div>
+                <div class="text-ellipsis">Utility that saves time by converting json to swagger compatible yaml models</div>
+            </div>
+            <section class="pr-5">
+                <b class="author">Made with <b class="text-red">❤</b> by
+                <a href="https://github.com/essuraj/" target="_blank">Suraj</a></b>
+            </section>
+            <section>
+                <a class="github-button" href="https://github.com/essuraj/swagger-toolbox" data-icon="octicon-star" data-style="mega" data-count-href="/essuraj/swagger-toolbox/stargazers"
+                    data-count-api="/repos/essuraj/swagger-toolbox#stargazers_count" data-count-aria-label="# stargazers on GitHub"
+                    aria-label="Star essuraj/swagger-toolbox on GitHub">Star</a>
+                <a class="github-button" href="https://github.com/essuraj/swagger-toolbox/issues" data-icon="octicon-issue-opened" data-style="mega"
+                    data-count-api="/repos/essuraj/swagger-toolbox#open_issues_count" data-count-aria-label="# issues on GitHub"
+                    aria-label="Issue essuraj/swagger-toolbox on GitHub">Issue</a>
+            </section>
+        </header>
+        <div class="divider"></div>
         <div class="columns fh">
             <div class="column col-5">
                 <ul class="tab tab-block">
@@ -64,19 +90,18 @@
                 </textarea>
             </div>
             <div class="column col-2">
-                <header class="text-center">
-                    <img src="img/android-icon-48x48.png" alt="logo">
-                    <h1>Swagger toolbox</h1>
-                    <h2>Utility that save time by converting json to swagger compatible yaml models</h2>
-                </header>
+
+
                 <div class="text-center p-10">
-                    <button class="btn " onclick="processJSON()">Build →</button>
+                    <br/>
+                    <br/>
+                    <button class="btn btn-primary" onclick="processJSON()">Convert <img class="icon icons8-Process" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABIElEQVQ4T6WTYVHDUBCEdx3UAXUAKAAUgAOKg+IABxQFBAd1ADgoCoiEoGCZL/NeJ4WETIf71bnJ+25vb2v9szz1PsmlpGtJnaRW0rvtNslC0oLfvO0BSZaSTgrsy/YuyY2kdeldFNBGEv17229DAFQap2US0w8qCbDH0rw6ABQVjaTbPwBMPyuANSp/rvAp6Y6PbFfpsxZXD3gAFS9mK8mqn243FdDLs/1r9zFaEvxqba8qgP2XRwJ2rFoBnIbbApqtJGTjwfZmMkgT0lkV958lnXOJPSAJJ6p3/hi7RNmdUL2w//6MJQcY+Dq489NImDAPACoIUzdUAKBKJFDs2YelTGyKSlJLcYV2CCADHdTy38BYejzY2t6O+XKUiWOAb9WQhRHcCRZMAAAAAElFTkSuQmCC" width="16" height="16"></button>
                     <br/>
                     <br/>
                     <div id="status">
-                        <span> ♣ </span>
-                        <span id="statusMessage"></span>
+                        <h5 class="mt-5 mb-5" id="statusMessage"></h5>
                     </div>
+
                 </div>
             </div>
             <div class="column col-5 op">
@@ -89,17 +114,6 @@
                 <textarea class="column col-12" id="myTextarea3" readonly></textarea>
             </div>
         </div>
-        <div class="divider"></div>
-        <footer class="columns">
-            <div class="col-12 text-center">
-                <p>Made with <b class="text-red">❤</b> by
-                    <a href="https://github.com/essuraj/" target="_blank">Suraj</a></p>
-                <p>Suggest or report anything below</p>
-                <a class="github-button" href="https://github.com/essuraj/swagger-toolbox" data-icon="octicon-star" data-style="mega" data-count-href="/essuraj/swagger-toolbox/stargazers" data-count-api="/repos/essuraj/swagger-toolbox#stargazers_count" data-count-aria-label="# stargazers on GitHub"
-                    aria-label="Star essuraj/swagger-toolbox on GitHub">Star</a>
-                <a class="github-button" href="https://github.com/essuraj/swagger-toolbox/issues" data-icon="octicon-issue-opened" data-style="mega" data-count-api="/repos/essuraj/swagger-toolbox#open_issues_count" data-count-aria-label="# issues on GitHub" aria-label="Issue essuraj/swagger-toolbox on GitHub">Issue</a>
-            </div>
-        </footer>
     </div>
     <script src="vendor/codemirror-compressed.js"></script>
     <script src="vendor/yamler.min.js"></script>
