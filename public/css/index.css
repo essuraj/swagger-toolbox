@@ -8,7 +8,7 @@
      background: -moz-linear-gradient(top, rgba(244,244,244,1) 0%, rgba(249,249,249,1) 28%, rgba(249,249,249,0.96) 31%, rgba(0,0,0,0) 100%),url("../img/bg.png");
 background: -webkit-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(249,249,249,1) 28%,rgba(249,249,249,0.96) 31%,rgba(0,0,0,0) 100%),url("../img/bg.png");
 background: linear-gradient(to bottom, rgba(244,244,244,1) 0%,rgba(249,249,249,1) 28%,rgba(249,249,249,0.96) 31%,rgba(0,0,0,0) 100%),url("../img/bg.png");
-
+background-repeat: repeat-x
  }
  
  .text-red {
@@ -35,14 +35,14 @@ background: linear-gradient(to bottom, rgba(244,244,244,1) 0%,rgba(249,249,249,1
      height: calc(100% - 130px);
  }
  
- .CodeMirror {
-     min-height: 500px;
+ .editor-region .CodeMirror {
+     min-height: calc(100% - 50px);
  }
  
  .op .CodeMirror {
-     background: none;
-     height: 47%;
-     min-height: 200px;
+     background-color: transparent;
+     min-height: 45%;
+     border: 1px dashed #ebebec;
  }
  
  .toast.toast-success {
