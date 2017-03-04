@@ -2,7 +2,7 @@ title: Swagger-toolbox
 description: swagger yaml helpers for creating models
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 
 gems:
   - jekyll-mentions
