@@ -3,22 +3,13 @@
      height: 100%;
      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif !important;
  }
- /* body {
-     background: -moz-linear-gradient(top, rgba(249, 249, 249, .7) 37%, rgba(249, 249, 249, 0.6) 70%, rgba(249, 249, 249, 0.5) 100%), url("../img/bg.png");
-     background: -webkit-linear-gradient(top, rgba(249, 249, 249, .7) 37%, rgba(249, 249, 249, 0.6) 70%, rgba(249, 249, 249, 0.5) 100%), url("../img/bg.png");
-     background: linear-gradient(to bottom, rgba(249, 249, 249, .7) 37%, rgba(249, 249, 249, 0.6) 70%, rgba(249, 249, 249, 0.5) 100%), url("../img/bg.png");
- } */
 
  .text-red {
      color: #b90000;
  }
 
  .fh {
-     height: calc(100% - 130px);
- }
-
- .editor-region .CodeMirror {
-     min-height: calc(100% - 50px);
+     height: 100%;
  }
 
  .op .CodeMirror {
@@ -40,7 +31,7 @@
  .author {
      display: inline-block;
      color: #333;
-     vertical-align: middle;
+     vertical-align: top;
      cursor: pointer;
      background-color: #fff;
      border: 1px solid #d5d5d5;
@@ -51,7 +42,6 @@
      background-image: linear-gradient(to bottom, #fcfcfc, #eee);
      padding: 6px 10px 4px;
      font-size: 12px;
-     height: 28px;
  }
 
  .github-corner:hover .octo-arm {
@@ -82,41 +72,14 @@
      }
  }
 
- section.left {
+ .editor-region {
      background: #f4f1f5;
-     padding: 12px;
  }
 
- section.left .heading {
-     padding: 12px 36px;
+ .tile-title h1 {
+     margin: 0
  }
 
- section.right {
-     background: white;
-     padding: 12px;
- }
-
- .text-heading h1,
- .text-heading p {
-     margin: 0 !important;
-     padding: 4px;
- }
-
- button {
-     width: 120px;
-     border-radius: 30px;
-     text-transform: uppercase;
-     font-size: 14px;
-     font-weight: 700;
-     background: none;
-     border: 2px solid #607D8B;
-     color: #607D8B;
-     text-transform: uppercase;
-     padding: 8px 6px;
- }
-
- button:active {
-     background: #607D8B;
-     border: 2px solid #333;
-     color: white;
+ .op {
+     box-shadow: 0 0.1rem 0.4rem rgba(69, 77, 93, .3)
  }
