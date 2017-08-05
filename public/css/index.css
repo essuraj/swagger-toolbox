@@ -83,3 +83,11 @@
  .op {
      box-shadow: 0 0.1rem 0.4rem rgba(69, 77, 93, .3)
  }
+
+ .accordion .accordion-item .accordion-body {
+     padding: 0
+ }
+
+ .accordion .accordion-item .accordion-header {
+     background: #f0f0f1;
+ }
