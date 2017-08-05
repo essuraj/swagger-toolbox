@@ -14,30 +14,22 @@ var jsonEditor2 = CodeMirror.fromTextArea(document.getElementById("myTextarea3")
     mode: "application/json",
     readOnly: true
 });
-var statusChange = function (state) {
-    document.getElementById("status").className = state
-};
-var statusMessage = function (message) {
-    document.getElementById("statusMessage").innerHTML = message
-};
+
 
 function processJSON() {
     var jsonString = jsonEditor.getValue().trim();
     if (this.tryParseJSON(jsonString) === true) {
-        statusMessage("Valid json ✔");
-        statusChange("toast toast-success");
+
         var json = JSON.parse(jsonString);
         var yamlReady = this.buildSwaggerJSON(json);
         console.log(yamlReady);
         jsonEditor2.setValue(JSON.stringify(yamlReady, null, 4));
         var x = stringify(yamlReady);
         yamlEditor.setValue(x);
-        statusMessage("✔ <br/>Conversion complete");
-        statusChange("toast pt-10 toast-success");
+        tinyToast.show('✔ Conversion complete')
 
     } else {
-        statusMessage("Invalid JSON. Have properties names in quotes");
-        statusChange("toast toast-danger");
+        tinyToast.show('Invalid JSON. Have properties names in quotes')
     }
 }
 
