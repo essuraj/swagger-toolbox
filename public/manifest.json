@@ -48,5 +48,9 @@
       "type": "image/png",
       "density": "4.0"
     }
-  ]
+  ],
+  "lang": "en",
+  "orientation": "any",
+  "description":
+    "Utility that saves time by converting json to swagger compatible yaml models"
 }
