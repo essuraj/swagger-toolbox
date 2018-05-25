@@ -54,10 +54,12 @@ function buildSwaggerJSON(data) {
         properties: {}
     };
     keys.forEach(function (x) {
-        var typeData = typeOf(data[x]);
+        var value = data[x];
+        var typeData = typeOf(value);
         if (["array", "object", "null"].indexOf(typeData) === -1)
             op.properties[x] = {
-                "type": typeData
+                "type": typeData,
+                "example": value
             };
         else {
             switch (typeData) {
@@ -79,6 +81,7 @@ function buildSwaggerJSON(data) {
                     }
                     op.properties[x] = {
                         "type": "array",
+                        "example": value,
                         "items": {
                             type: typeData
                         }
